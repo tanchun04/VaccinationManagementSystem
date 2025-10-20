@@ -1,0 +1,14 @@
+# Cấu hình Android SDK
+# Copy file này thành local.properties và sửa đường dẫn cho phù hợp
+
+# Windows:
+# sdk.dir=C\:\\Users\\YourName\\AppData\\Local\\Android\\Sdk
+
+# macOS:
+# sdk.dir=/Users/YourName/Library/Android/sdk
+
+# Linux:
+# sdk.dir=/home/YourName/Android/Sdk
+
+# Ví dụ cụ thể:
+# sdk.dir=/home/ubuntu/Android/Sdk
