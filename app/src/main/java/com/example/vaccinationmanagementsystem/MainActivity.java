@@ -108,55 +108,30 @@ public class MainActivity extends AppCompatActivity implements FeatureAdapter.On
     }
 
     private void handleFeatureNavigation(Feature feature) {
-        String featureName = feature.getName();
-
-        switch (featureName) {
-            case "Đặt lịch tiêm":
-                showToast("Mở màn hình đặt lịch tiêm");
-                // Intent intent = new Intent(this, ScheduleActivity.class);
-                // startActivity(intent);
-                break;
-
-            case "Xem chứng nhận":
-                showToast("Mở màn hình xem chứng nhận");
-                break;
-
-            case "Quét mã QR":
-                showToast("Mở màn hình quét mã QR");
-                break;
-
-            case "Khảo sát sau tiêm":
-                showToast("Mở màn hình khảo sát");
-                break;
-
-            case "Thống kê":
-                showToast("Mở màn hình thống kê");
-                break;
-
-            case "Quản lý vaccine":
-                showToast("Mở màn hình quản lý vaccine");
-                break;
-
-            case "Nhận thông báo":
-                showToast("Mở màn hình thông báo");
-                break;
-
-            case "Hủy/Đặt lịch":
-                showToast("Mở màn hình quản lý lịch hẹn");
-                break;
-
-            case "Cập nhật trạng thái":
-                showToast("Mở màn hình cập nhật trạng thái");
-                break;
-
-            case "Quản lý tài khoản":
-                showToast("Mở màn hình quản lý tài khoản");
-                break;
-
-            default:
-                showToast("Tính năng: " + featureName);
-                break;
+        String activitySimpleName = feature.getActivityName();
+        if (activitySimpleName == null || activitySimpleName.trim().isEmpty()) {
+            launchStub(feature);
+            return;
         }
+
+        // Try to launch by fully qualified class name within this package
+        String packageName = getPackageName();
+        String fqcn = packageName + "." + activitySimpleName;
+        try {
+            Class<?> clazz = Class.forName(fqcn);
+            Intent intent = new Intent(this, clazz);
+            startActivity(intent);
+        } catch (ClassNotFoundException e) {
+            // Fallback to stub activity
+            launchStub(feature);
+        }
+    }
+
+    private void launchStub(Feature feature) {
+        Intent intent = new Intent(this, FeatureStubActivity.class);
+        intent.putExtra("title", feature.getName());
+        intent.putExtra("description", feature.getDescription());
+        startActivity(intent);
     }
 
     private void showToast(String message) {
