@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_color">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary_color"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:elevation="4dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Statistics Grid -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Row 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <!-- Total Vaccinations -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardTotalVaccinations"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/light_blue">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_vaccine"
+                                android:tint="@color/primary_color"
+                                android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:id="@+id/tvTotalVaccinations"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1,234"
+                                android:textSize="24sp"
+                                android:textColor="@color/primary_color"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tổng số mũi tiêm"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_primary"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Total Appointments -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardTotalAppointments"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/light_green">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_calendar"
+                                android:tint="@color/accent_color"
+                                android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:id="@+id/tvTotalAppointments"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="567"
+                                android:textSize="24sp"
+                                android:textColor="@color/accent_color"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tổng lịch hẹn"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_primary"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!-- Row 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="24dp">
+
+                    <!-- Completed Vaccinations -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardCompletedVaccinations"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/light_orange">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_certificate"
+                                android:tint="#FF9800"
+                                android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:id="@+id/tvCompletedVaccinations"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1,100"
+                                android:textSize="24sp"
+                                android:textColor="#FF9800"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Đã hoàn thành"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_primary"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Pending Appointments -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardPendingAppointments"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/light_purple">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/ic_schedule"
+                                android:tint="#9C27B0"
+                                android:layout_marginBottom="8dp" />
+
+                            <TextView
+                                android:id="@+id/tvPendingAppointments"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="89"
+                                android:textSize="24sp"
+                                android:textColor="#9C27B0"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Đang chờ"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_primary"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Chart Section -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Biểu đồ tiêm chủng theo tháng"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Placeholder for chart -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:text="📊\n\nBiểu đồ sẽ được hiển thị ở đây\n(Cần tích hợp thư viện chart)"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center"
+                        android:background="@color/background_color" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Recent Activity -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hoạt động gần đây"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Activity Item 1 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_vaccine"
+                            android:tint="@color/accent_color"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginTop="2dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tiêm vaccine COVID-19 thành công"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="2 giờ trước"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Activity Item 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_calendar"
+                            android:tint="@color/primary_color"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginTop="2dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Đặt lịch tiêm vaccine cúm mùa"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="1 ngày trước"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Activity Item 3 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_certificate"
+                            android:tint="#FF9800"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginTop="2dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Nhận chứng nhận tiêm chủng"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="3 ngày trước"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

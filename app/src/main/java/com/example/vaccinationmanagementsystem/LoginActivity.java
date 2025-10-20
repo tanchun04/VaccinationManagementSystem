@@ -7,12 +7,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.vaccinationmanagementsystem.dao.UserDAO;
+import com.example.vaccinationmanagementsystem.model.User;
+import com.example.vaccinationmanagementsystem.utils.SessionManager;
+import com.example.vaccinationmanagementsystem.utils.ValidationUtils;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etUsername, etPassword;
     private Button btnLogin;
     private TextView tvRegister, tvForgotPassword;
+    private UserDAO userDAO;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +26,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         initViews();
+        initDatabase();
+        checkLoginStatus();
         setupClickListeners();
     }
 
@@ -31,17 +39,30 @@ public class LoginActivity extends AppCompatActivity {
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
     }
 
+    private void initDatabase() {
+        userDAO = new UserDAO(this);
+        sessionManager = new SessionManager(this);
+    }
+
+    private void checkLoginStatus() {
+        if (sessionManager.isLoggedIn()) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
     private void setupClickListeners() {
         btnLogin.setOnClickListener(v -> attemptLogin());
 
         tvRegister.setOnClickListener(v -> {
-            // Chuyển đến màn hình đăng ký
-            Toast.makeText(LoginActivity.this, "Chuyển đến đăng ký", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
         });
 
         tvForgotPassword.setOnClickListener(v -> {
-            // Chuyển đến màn hình quên mật khẩu
-            Toast.makeText(LoginActivity.this, "Chuyển đến quên mật khẩu", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -49,24 +70,49 @@ public class LoginActivity extends AppCompatActivity {
         String username = etUsername.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
-        if (username.isEmpty()) {
-            etUsername.setError("Vui lòng nhập tên đăng nhập");
+        // Validation
+        boolean isValid = true;
+        
+        if (!ValidationUtils.isRequired(etUsername, "Tên đăng nhập")) {
+            isValid = false;
+        }
+        
+        if (!ValidationUtils.isRequired(etPassword, "Mật khẩu")) {
+            isValid = false;
+        }
+        
+        if (!isValid) {
             return;
         }
 
-        if (password.isEmpty()) {
-            etPassword.setError("Vui lòng nhập mật khẩu");
-            return;
-        }
-
-        // Giả lập đăng nhập thành công
-        if (username.equals("admin") && password.equals("123456")) {
+        // Thử đăng nhập với database
+        User user = userDAO.loginUser(username, password);
+        if (user != null) {
+            // Lưu session
+            sessionManager.createLoginSession(user);
             Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         } else {
-            Toast.makeText(this, "Sai tên đăng nhập hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
+            // Fallback cho admin account
+            if (username.equals("admin") && password.equals("123456")) {
+                // Tạo user admin tạm thời
+                User adminUser = new User();
+                adminUser.setUserId(0);
+                adminUser.setFullName("Administrator");
+                adminUser.setEmail("admin");
+                adminUser.setPhone("0000000000");
+                adminUser.setAddress("System");
+                
+                sessionManager.createLoginSession(adminUser);
+                Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Toast.makeText(this, "Sai tên đăng nhập hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
