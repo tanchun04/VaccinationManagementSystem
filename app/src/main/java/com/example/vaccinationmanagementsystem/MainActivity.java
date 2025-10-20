@@ -112,13 +112,13 @@ public class MainActivity extends AppCompatActivity implements FeatureAdapter.On
 
         switch (featureName) {
             case "Đặt lịch tiêm":
-                showToast("Mở màn hình đặt lịch tiêm");
-                // Intent intent = new Intent(this, ScheduleActivity.class);
-                // startActivity(intent);
+                Intent scheduleIntent = new Intent(this, ScheduleActivity.class);
+                startActivity(scheduleIntent);
                 break;
 
             case "Xem chứng nhận":
-                showToast("Mở màn hình xem chứng nhận");
+                Intent certificateIntent = new Intent(this, CertificateActivity.class);
+                startActivity(certificateIntent);
                 break;
 
             case "Quét mã QR":
@@ -130,7 +130,8 @@ public class MainActivity extends AppCompatActivity implements FeatureAdapter.On
                 break;
 
             case "Thống kê":
-                showToast("Mở màn hình thống kê");
+                Intent statisticsIntent = new Intent(this, StatisticsActivity.class);
+                startActivity(statisticsIntent);
                 break;
 
             case "Quản lý vaccine":
@@ -150,7 +151,8 @@ public class MainActivity extends AppCompatActivity implements FeatureAdapter.On
                 break;
 
             case "Quản lý tài khoản":
-                showToast("Mở màn hình quản lý tài khoản");
+                Intent accountIntent = new Intent(this, AccountActivity.class);
+                startActivity(accountIntent);
                 break;
 
             default:
