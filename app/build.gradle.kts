@@ -36,6 +36,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    // ZXing - prefer JourneyApps, avoid deprecated dm7 to prevent conflicts
+    implementation(libs.zxing.embedded)
+    implementation(libs.zxing.core)
     implementation(libs.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
