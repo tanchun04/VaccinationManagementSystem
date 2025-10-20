@@ -9,6 +9,37 @@
         android:theme="@style/Theme.VaccinationManagementSystem">
 
         <activity
+            android:name=".ScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CertificateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QRScannerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SurveyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StatisticsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VaccineManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateStatusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AccountActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
