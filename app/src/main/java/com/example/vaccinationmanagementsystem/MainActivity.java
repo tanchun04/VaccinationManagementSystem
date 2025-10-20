@@ -112,45 +112,53 @@ public class MainActivity extends AppCompatActivity implements FeatureAdapter.On
 
         switch (featureName) {
             case "Đặt lịch tiêm":
-                showToast("Mở màn hình đặt lịch tiêm");
-                // Intent intent = new Intent(this, ScheduleActivity.class);
-                // startActivity(intent);
+                Intent scheduleIntent = new Intent(this, ScheduleActivity.class);
+                startActivity(scheduleIntent);
                 break;
 
             case "Xem chứng nhận":
-                showToast("Mở màn hình xem chứng nhận");
+                Intent certificateIntent = new Intent(this, CertificateActivity.class);
+                startActivity(certificateIntent);
                 break;
 
             case "Quét mã QR":
-                showToast("Mở màn hình quét mã QR");
+                Intent qrIntent = new Intent(this, QRScannerActivity.class);
+                startActivity(qrIntent);
                 break;
 
             case "Khảo sát sau tiêm":
-                showToast("Mở màn hình khảo sát");
+                Intent surveyIntent = new Intent(this, SurveyActivity.class);
+                startActivity(surveyIntent);
                 break;
 
             case "Thống kê":
-                showToast("Mở màn hình thống kê");
+                Intent statisticsIntent = new Intent(this, StatisticsActivity.class);
+                startActivity(statisticsIntent);
                 break;
 
             case "Quản lý vaccine":
-                showToast("Mở màn hình quản lý vaccine");
+                Intent vaccineIntent = new Intent(this, VaccineManagementActivity.class);
+                startActivity(vaccineIntent);
                 break;
 
             case "Nhận thông báo":
-                showToast("Mở màn hình thông báo");
+                Intent notificationIntent = new Intent(this, NotificationActivity.class);
+                startActivity(notificationIntent);
                 break;
 
             case "Hủy/Đặt lịch":
-                showToast("Mở màn hình quản lý lịch hẹn");
+                Intent appointmentIntent = new Intent(this, AppointmentActivity.class);
+                startActivity(appointmentIntent);
                 break;
 
             case "Cập nhật trạng thái":
-                showToast("Mở màn hình cập nhật trạng thái");
+                Intent updateIntent = new Intent(this, UpdateStatusActivity.class);
+                startActivity(updateIntent);
                 break;
 
             case "Quản lý tài khoản":
-                showToast("Mở màn hình quản lý tài khoản");
+                Intent accountIntent = new Intent(this, AccountActivity.class);
+                startActivity(accountIntent);
                 break;
 
             default:
