@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/background_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Khảo sát sau tiêm chủng"
+            android:textSize="24sp"
+            android:textColor="@color/primary_color"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Survey Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Question 1: Side Effects -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1. Bạn có gặp tác dụng phụ nào sau khi tiêm không?"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <RadioGroup
+                    android:id="@+id/rgSideEffects"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp">
+
+                    <RadioButton
+                        android:id="@+id/rbSideEffectsNone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Không có tác dụng phụ"
+                        android:textColor="@color/text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/rbSideEffectsMild"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tác dụng phụ nhẹ (đau nhức tại chỗ tiêm)"
+                        android:textColor="@color/text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/rbSideEffectsModerate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tác dụng phụ vừa phải (sốt nhẹ, mệt mỏi)"
+                        android:textColor="@color/text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/rbSideEffectsSevere"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tác dụng phụ nghiêm trọng (sốt cao, phản ứng dị ứng)"
+                        android:textColor="@color/text_primary" />
+
+                </RadioGroup>
+
+                <!-- Question 2: Pain Level -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2. Mức độ đau tại chỗ tiêm?"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <RadioGroup
+                    android:id="@+id/rgPainLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp">
+
+                    <RadioButton
+                        android:id="@+id/rbPainNone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Không đau"
+                        android:textColor="@color/text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/rbPainMild"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Đau nhẹ"
+                        android:textColor="@color/text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/rbPainModerate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Đau vừa phải"
+                        android:textColor="@color/text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/rbPainSevere"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Đau nhiều"
+                        android:textColor="@color/text_primary" />
+
+                </RadioGroup>
+
+                <!-- Question 3: Overall Experience -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3. Đánh giá tổng thể về trải nghiệm tiêm chủng?"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <RadioGroup
+                    android:id="@+id/rgOverallExperience"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp">
+
+                    <RadioButton
+                        android:id="@+id/rbExperienceExcellent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rất tốt"
+                        android:textColor="@color/text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/rbExperienceGood"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tốt"
+                        android:textColor="@color/text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/rbExperienceFair"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bình thường"
+                        android:textColor="@color/text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/rbExperiencePoor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kém"
+                        android:textColor="@color/text_primary" />
+
+                </RadioGroup>
+
+                <!-- Submit Button -->
+                <Button
+                    android:id="@+id/btnSubmitSurvey"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Gửi khảo sát"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/primary_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>
