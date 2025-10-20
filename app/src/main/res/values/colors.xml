@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colors cơ bản -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Custom colors for vaccination app -->
+    <color name="primary_color">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="accent_color">#4CAF50</color>
+    <color name="background_color">#F5F5F5</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="card_background">#FFFFFF</color>
+
+    <!-- Light colors for feature cards -->
+    <color name="light_blue">#E3F2FD</color>
+    <color name="light_green">#E8F5E8</color>
+    <color name="light_orange">#FFF3E0</color>
+    <color name="light_purple">#F3E5F5</color>
+    <color name="light_red">#FFEBEE</color>
+    <color name="light_teal">#E0F2F1</color>
+    <color name="light_yellow">#FFFDE7</color>
+    <color name="light_indigo">#E8EAF6</color>
+    <color name="light_cyan">#E0F7FA</color>
+    <color name="light_pink">#FCE4EC</color>
+</resources>
